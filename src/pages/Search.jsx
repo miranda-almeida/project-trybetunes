@@ -82,7 +82,7 @@ export default class Search extends Component {
                 ))}
               </div>
             )
-            : (<p>Nenhum álbum foi encontrado</p>)}
+            : (<h3>Nenhum álbum foi encontrado</h3>)}
         </div>
       </div>
     );
