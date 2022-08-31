@@ -6,7 +6,7 @@ import Loading from './Loading';
 export default class MusicCard extends Component {
   // seta estado inicial da checkbox e carregamento (falsos)
   state = {
-    checked: false,
+    clickCheck: false,
     loading: false,
   };
 
@@ -17,12 +17,12 @@ export default class MusicCard extends Component {
     const filter = object.find((id) => id.trackId === value);
     this.setState({ loading: true });
     await addSong(filter);
-    this.setState({ checked: true, loading: false });
+    this.setState({ clickCheck: true, loading: false });
   };
 
   render() {
-    const { trackName, previewUrl, trackId } = this.props;
-    const { checked, loading } = this.state;
+    const { trackName, previewUrl, trackId, checked } = this.props;
+    const { clickCheck, loading } = this.state;
     return (
       <div>
         { loading ? <Loading />
@@ -42,7 +42,7 @@ export default class MusicCard extends Component {
                   type="checkbox"
                   data-testid={ `checkbox-music-${trackId}` }
                   id={ trackId }
-                  checked={ checked }
+                  checked={ checked || clickCheck }
                   onChange={ this.whenClicked }
                 />
               </label>
