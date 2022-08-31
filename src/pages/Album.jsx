@@ -5,7 +5,7 @@ import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
 
 export default class Album extends Component {
-  // seta estado inicial da lista de músicas a ser preenchida pelo retorno da API (array vazio)
+  // seta estado inicial da lista de músicas a ser preenchida pelo retorno da API, favoritadas (arrays vazios) e carregamento (falso)
   state = {
     songs: [],
   };
@@ -42,6 +42,8 @@ export default class Album extends Component {
               <MusicCard
                 trackName={ music.trackName }
                 previewUrl={ music.previewUrl }
+                trackId={ music.trackId }
+                object={ songs }
               />
             )
           ))
